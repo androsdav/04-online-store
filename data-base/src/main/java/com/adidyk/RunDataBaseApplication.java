@@ -1,5 +1,6 @@
 package com.adidyk;
 
+import com.adidyk.models.dto.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -36,11 +37,18 @@ public class RunDataBaseApplication {
         System.out.println("viber-bot");
         System.getProperties().put("server.port", 8081);
         SpringApplication.run(RunDataBaseApplication.class, arg);
+        User user = new User();
+        user.setId(1);
+        System.out.println(user);
     }
 
 
     @EventListener(ApplicationReadyEvent.class)
     public void testJpaMethods() {
+        //User user = new User();
+        //user
+        //user.setFirstName("first-name");
+        //user.
 
         // add smart phone
         //SmartPhone iphone = new SmartPhone("samsung", "galaxy", "smart phone", 10, 500);
