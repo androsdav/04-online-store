@@ -1,6 +1,8 @@
 package com.adidyk;
 
-import com.adidyk.models.dto.User;
+import com.adidyk.models.pojo.User;
+import com.adidyk.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -12,39 +14,35 @@ import org.springframework.context.event.EventListener;
 @SpringBootApplication
 public class RunDataBaseApplication {
 
-    //private final SmartPhoneService smartPhoneService;
+    private UserRepository userRepository;
 
-    //private final OrderService orderService;
-
-    //private final UserService userService;
-
-    //@Autowired
-    /*
-    public StartUi(SmartPhoneService smartPhoneService, OrderService orderService, UserService userService) {
-        this.smartPhoneService = smartPhoneService;
-        this.orderService = orderService;
-        this.userService = userService;
+    @Autowired
+    public RunDataBaseApplication(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
-    */
-
-
 
     /**
      * main - main.
      * @param arg - arg.
      */
     public  static void main(String[] arg) {
-        System.out.println("viber-bot");
-        System.getProperties().put("server.port", 8081);
         SpringApplication.run(RunDataBaseApplication.class, arg);
-        User user = new User();
-        user.setId(1);
-        System.out.println(user);
     }
 
 
+    /*
     @EventListener(ApplicationReadyEvent.class)
     public void testJpaMethods() {
+        User user1 = new User("1", "1", "1", "5");
+        User user2 = new User("2", "2", "2", "5");
+        User user3 = new User("3", "3", "3", "5");
+        User user4 = new User("4", "4", "4", "5");
+        this.userRepository.save(user1);
+        this.userRepository.save(user2);
+        this.userRepository.save(user3);
+        this.userRepository.save(user4);
+        System.out.println("User find by id: " + this.userRepository.findById("1"));
+        System.out.println("Find all user: " + this.userRepository.findAll());
         //User user = new User();
         //user
         //user.setFirstName("first-name");
@@ -125,6 +123,5 @@ public class RunDataBaseApplication {
         */
 
 
-    }
 
 }
