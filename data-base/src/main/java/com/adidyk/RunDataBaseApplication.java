@@ -30,19 +30,19 @@ public class RunDataBaseApplication {
     }
 
 
-    /*
     @EventListener(ApplicationReadyEvent.class)
     public void testJpaMethods() {
-        User user1 = new User("1", "1", "1", "5");
-        User user2 = new User("2", "2", "2", "5");
-        User user3 = new User("3", "3", "3", "5");
-        User user4 = new User("4", "4", "4", "5");
+        User user1 = new User("11111", "11111", "11111", "11111");
+        User user2 = new User("22222", "22222", "22222", "22222");
+        User user3 = new User("33333", "33333", "33333", "33333");
+        User user4 = new User("44444", "44444", "44444", "44444");
         this.userRepository.save(user1);
         this.userRepository.save(user2);
         this.userRepository.save(user3);
         this.userRepository.save(user4);
-        System.out.println("User find by id: " + this.userRepository.findById("1"));
+        //System.out.println("User find by id: " + this.userRepository.findById("1"));
         System.out.println("Find all user: " + this.userRepository.findAll());
+    }
         //User user = new User();
         //user
         //user.setFirstName("first-name");

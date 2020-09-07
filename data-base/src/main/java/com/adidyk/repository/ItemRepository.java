@@ -1,6 +1,8 @@
 package com.adidyk.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,6 +11,6 @@ import org.springframework.stereotype.Repository;
  * @since 06.06.2020.
  * @version 1.0.
  */
-@Repository
-interface ItemRepository<T, ID> extends JpaRepository <T, ID> {
+@NoRepositoryBean
+interface  ItemRepository<T, ID> extends JpaRepository<T, ID> {
 }
