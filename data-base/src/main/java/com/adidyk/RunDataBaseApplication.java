@@ -40,7 +40,6 @@ public class RunDataBaseApplication {
         this.userRepository.save(user2);
         this.userRepository.save(user3);
         this.userRepository.save(user4);
-        //System.out.println("User find by id: " + this.userRepository.findById("1"));
         System.out.println("Find all user: " + this.userRepository.findAll());
     }
         //User user = new User();

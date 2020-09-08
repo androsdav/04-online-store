@@ -2,8 +2,6 @@ package com.adidyk.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 /**
  * Interface ItemRepository it one point to connect to to data base.
