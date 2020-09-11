@@ -1,6 +1,5 @@
 package com.adidyk;
 
-import com.adidyk.models.pojo.User;
 import com.adidyk.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
