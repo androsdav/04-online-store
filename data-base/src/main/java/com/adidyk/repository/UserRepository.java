@@ -4,7 +4,7 @@ import com.adidyk.models.pojo.User;
 import org.springframework.stereotype.Repository;
 
 /**
- * Interface UserRepository used for access to data base. first day, second day.
+ * Interface UserRepository used for access to data base. first day, second day. predicate
  * @author Didyk Andrey (androsdav@gmail.com).
  * @since 06.06.2020.
  * @version 1.0.
