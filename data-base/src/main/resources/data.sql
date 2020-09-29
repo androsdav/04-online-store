@@ -13,10 +13,34 @@ CREATE FUNCTION getAllUser() RETURNS integer AS
       result integer;
     BEGIN
       result = quantity + 12;
-      RETURN result; 
+      RETURN result;
     END;
-  $$ 
+  $$
   LANGUAGE plpgsql;
+
+
+CREATE FUNCTION somefunc() RETURNS integer AS $$
+<< outerblock >>
+  DECLARE
+  quantity integer := 30;
+BEGIN
+  RAISE NOTICE 'Сейчас quantity = %', quantity;  -- Выводится 30
+  quantity := 50;
+  --
+  -- Вложенный блок
+  --
+  DECLARE
+    quantity integer := 80;
+  BEGIN
+    RAISE NOTICE 'Сейчас quantity = %', quantity;  -- Выводится 80
+    RAISE NOTICE 'Во внешнем блоке quantity = %', outerblock.quantity;  -- Выводится 50
+  END;
+
+  RAISE NOTICE 'Сейчас quantity = %', quantity;  -- Выводится 50
+
+  RETURN quantity;
+END;
+$$ LANGUAGE plpgsql;
 
 
 CREATE FUNCTION somefunc() RETURNS integer AS $$
