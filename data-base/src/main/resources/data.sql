@@ -6,16 +6,15 @@ SELECT * FROM users AS u WHERE
 
 SELECT u.first_name, u.login, u.password, u.second_name FROM users AS u;
 
-CREATE FUNCTION getAllUser() RETURNS integer AS
-  $$
+-- getAllUser - trainer example
+CREATE OR REPLACE FUNCTION get_all_user() RETURNS varchar AS
+  $BODY$
     DECLARE
-      quantity integer := 10;
-      result integer;
+      result text := 'SELECT users.id users.first_name FROM users';
     BEGIN
-      result = quantity + 12;
-      RETURN result;
+      RETURN query execute result;
     END;
-  $$
+  $BODY$
   LANGUAGE plpgsql;
 
 
