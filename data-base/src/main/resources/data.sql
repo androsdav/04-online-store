@@ -7,12 +7,12 @@ SELECT * FROM users AS u WHERE
 SELECT u.first_name, u.login, u.password, u.second_name FROM users AS u;
 
 -- getAllUser - trainer example
-CREATE OR REPLACE FUNCTION get_all_user() RETURNS varchar AS
+CREATE OR REPLACE FUNCTION get_all_user() RETURNS text AS
   $BODY$
     DECLARE
       result text := 'SELECT users.id users.first_name FROM users';
     BEGIN
-      RETURN query execute result;
+      RETURN query 'SELECT users.id users.first_name FROM users';
     END;
   $BODY$
   LANGUAGE plpgsql;
