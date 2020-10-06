@@ -58,16 +58,18 @@ SELECT find_all_user_return_query_varchar();
 DROP FUNCTION find_all_user_return_query_varchar();
 
 ------ find_all_user_by_first_name_and_login ------
-CREATE OR REPLACE FUNCTION find_all_user_by_first_name_and_login(first_name users.first_name%TYPE, login users.login%TYPE) RETURNS SETOF users AS
+CREATE OR REPLACE FUNCTION find_all_user_by_first_name_and_login(_first_name users.first_name%TYPE, _login users.login%TYPE) RETURNS SETOF users AS
   $BODY$
     BEGIN
-      RETURN QUERY SELECT * FROM users WHERE users.first_name = find_all_user_by_first_name_and_login.first_name AND users.login = find_all_user_by_first_name_and_login.login;
+      RETURN QUERY SELECT * FROM users WHERE
+        users.first_name = _first_name AND
+        users.login = _login;
     END;
   $BODY$
 LANGUAGE plpgsql;
 
 SELECT * FROM find_all_user_by_first_name_and_login('44444', '44444');
-SELECT * FROM find_all_user_by_first_name_and_login('andrey', 'rusin');
+SELECT * FROM find_all_user_by_first_name_and_login('', 'rusin');
 DROP FUNCTION find_all_user_by_first_name_and_login(first_name users.first_name%TYPE, login users.login%TYPE);
 
 
