@@ -68,7 +68,7 @@ LANGUAGE plpgsql;
 
 --CREATE OR REPLACE FUNCTION find_all_users_by_all_criteria(_first_name text, _login text) RETURNS
 
-CREATE OR REPLACE FUNCTION test(_first_name users.first_name%TYPE, _login users.login%TYPE) RETURNS SETOF users AS
+CREATE OR REPLACE FUNCTION test(_first_name users.first_name%TYPE, _login users.login%TYPE) AS
   $BODY$
     DECLARE
       result text;
@@ -76,7 +76,6 @@ CREATE OR REPLACE FUNCTION test(_first_name users.first_name%TYPE, _login users.
       --result text := 'SELECT * FROM users WHERE users.first_name := _first_name AND users.login := _login';
     BEGIN
       EXECUTE 'SELECT * FROM users AS u WHERE u.first_name = _first_name'
-        INTO users
         USING _first_name, _login;
       --RETURN QUERY EXECUTE result;
       /*
