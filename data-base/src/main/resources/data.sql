@@ -68,32 +68,32 @@ LANGUAGE plpgsql;
 
 --CREATE OR REPLACE FUNCTION find_all_users_by_all_criteria(_first_name text, _login text) RETURNS
 
-CREATE OR REPLACE FUNCTION test(_first_name users.first_name%TYPE, _login users.login%TYPE) AS
+CREATE OR REPLACE FUNCTION test(
+  first_name_ CHARACTER VARYING,
+  login_ CHARACTER VARYING)
+RETURNS SETOF users AS
   $BODY$
     DECLARE
-      result text;
-      --result text := 'SELECT * FROM users WHERE users.first_name = "andrey"';
-      --result text := 'SELECT * FROM users WHERE users.first_name := _first_name AND users.login := _login';
+      query_ text := 'SELECT * FROM users AS u ';
+      first_name_ text := '''' || first_name_ || '''';
+      login_ text := '''' || login_ || '''';
     BEGIN
-      EXECUTE 'SELECT * FROM users AS u WHERE u.first_name = _first_name'
-        USING _first_name, _login;
-      --RETURN QUERY EXECUTE result;
-      /*
-      IF _first_name IS NOT NUll THEN
-        result := result || 'users.first_name = ' || _first_name;
+      IF first_name_ IS NOT NULL THEN
+        query_ = query_ || 'u.first_name = ' || first_name_;
+        IF (login_ IS NOT NULL AND first_name_ IS NOT NULL) THEN
+          query_ = query_ || ' AND u.login = ' || login_;
+        END IF;
       END IF;
-      IF _login IS NOT NUll THEN
-        result := result || ' AND users.login = ' || _login;
-      END IF;
-      RETURN QUERY EXECUTE result;
-      */
+      RAISE NOTICE '%', query_;
+      RETURN QUERY EXECUTE query_;
     END;
   $BODY$
 LANGUAGE plpgsql;
 
-SELECT * FROM test('andrey', 'login');
-DROP FUNCTION test(_first_name text, _login text);
-----------------------------------------------------------------------------------
+SELECT * FROM test(null, null`);
+DROP FUNCTION test(_first_name users.first_name%TYPE, _login users.login%TYPE);
+-------------------------------------------------------------------------
+-- ---------
 
 SELECT * FROM find_all_user_by_first_name_and_login('44444', '44444');
 SELECT * FROM find_all_user_by_first_name_and_login('', 'rusin');
