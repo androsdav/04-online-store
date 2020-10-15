@@ -1,9 +1,0 @@
-com/adidyk/models/pojo/Processor.class
-com/adidyk/repository/ItemRepository.class
-com/adidyk/models/pojo/Display.class
-com/adidyk/repository/UserRepository.class
-com/adidyk/RunDataBaseApplication.class
-com/adidyk/models/pojo/User.class
-com/adidyk/controller/UserController.class
-com/adidyk/models/pojo/Notebook.class
-com/adidyk/service/UserService.class
