@@ -1,4 +1,4 @@
-package com.adidyk.models.pojo;
+package com.adidyk.models.pojo.laptop;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -25,8 +25,8 @@ public class Display {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    Integer id;
+    @Column(name = "display_id")
+    Integer displayId;
 
     /**
      * @param screenSize - display screen size in inches.
@@ -46,24 +46,7 @@ public class Display {
     @Column(name = "touch_screen")
     String touchScreen;
 
-    /**
-     * Display - constructor.
-     * @param id - display id.
-     */
-    public Display(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * Display - constructor.
-     * @param screenSize - display screen size.
-     * @param screenResolution - display resolution.
-     * @param touchScreen - display touch screen.
-     */
-    public Display(Float screenSize, String screenResolution, String touchScreen) {
-        this.screenSize = screenSize;
-        this.screenResolution = screenResolution;
-        this.touchScreen = touchScreen;
-    }
+    @Column(name = "display_type")
+    String displayType;
 
 }
