@@ -16,8 +16,8 @@ import javax.persistence.*;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
-@Table(name = "general")
-public class General {
+@Table(name = "laptop_general")
+public class LaptopGeneral {
 
     /**
      * @param id - notebook id.
@@ -30,8 +30,8 @@ public class General {
     /**
      * @param name - notebook name.
      */
-    @Column(name = "name")
-    String name;
+    @Column(name = "product_name")
+    String productName;
 
     /**
      * @param brand - notebook brand.

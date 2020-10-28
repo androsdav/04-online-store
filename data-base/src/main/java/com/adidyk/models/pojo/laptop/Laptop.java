@@ -31,8 +31,8 @@ public class Laptop {
     /**
      * @param name - notebook name.
      */
-    @Column(name = "name")
-    String name;
+    @Column(name = "product_name")
+    String productName;
 
     /**
      * @param brand - notebook brand.
@@ -57,6 +57,5 @@ public class Laptop {
      */
     @Column(name = "color_category")
     String colorCategory;
-
 
 }

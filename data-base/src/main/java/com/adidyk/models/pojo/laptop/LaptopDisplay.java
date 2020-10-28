@@ -17,8 +17,8 @@ import javax.persistence.*;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @Entity
-@Table(name = "display")
-public class Display {
+@Table(name = "laptop_display")
+public class LaptopDisplay {
 
     /**
      * @param id - display id.

@@ -17,8 +17,8 @@ import javax.persistence.*;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @Entity
-@Table(name = "processor")
-public class Processor {
+@Table(name = "laptop_processor")
+public class LaptopProcessor {
 
     /**
      * @param id - display id.
@@ -51,5 +51,11 @@ public class Processor {
      */
     @Column(name = "processor_model_number")
     String processorModelNumber;
+
+    /**
+     * @param  processorCores -  processor cores.
+     */
+    @Column(name = "processor_cores")
+    Integer processorCores;
 
 }
