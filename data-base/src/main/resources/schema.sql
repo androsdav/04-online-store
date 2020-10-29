@@ -43,3 +43,13 @@ CREATE TABLE laptop_processor(
   processor_model_number  VARCHAR(50) NOT NULL,
   processor_cores INTEGER NOT NULL
 );
+
+-- create table laptop_processor
+CREATE TABLE laptop(
+  laptop_id SERIAL PRIMARY KEY,
+  general_id INTEGER REFERENCES laptop_general(general_id) ON DELETE SET NULL,
+  display_id INTEGER REFERENCES laptop_display(display_id) ON DELETE SET NULL,
+  storage_id INTEGER REFERENCES laptop_storage (storage_id) ON DELETE  SET NULL,
+  memory_id INTEGER REFERENCES laptop_memory(memory_id) ON DELETE SET NULL,
+  processor_id INTEGER REFERENCES laptop_processor(processor_id) ON DELETE SET NULL
+);
