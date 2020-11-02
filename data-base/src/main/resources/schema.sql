@@ -11,7 +11,7 @@ CREATE TABLE laptop_general (
 -- create table laptop_display
 CREATE TABLE laptop_display(
   display_id SERIAL PRIMARY KEY ,
-  screen_size INTEGER NOT NULL,
+  screen_size FLOAT NOT NULL,
   screen_resolution VARCHAR(50) NOT NULL,
   touch_screen VARCHAR(50) NOT NULL,
   display_type VARCHAR(50)
@@ -38,7 +38,7 @@ CREATE TABLE laptop_memory(
 CREATE TABLE laptop_processor(
   processor_id SERIAL PRIMARY KEY,
   processor_brand VARCHAR(50) NOT NULL,
-  processor_speed_base INTEGER NOT NULL,
+  processor_speed_base FLOAT NOT NULL,
   processor_model VARCHAR(50) NOT NULL,
   processor_model_number  VARCHAR(50) NOT NULL,
   processor_cores INTEGER NOT NULL
